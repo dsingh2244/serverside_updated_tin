@@ -13,11 +13,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/', (req, res) => {
+app.get('updated_tin/', (req, res) => {
     res.json('Hello to my app')
 })
 
-app.post('/signup', async (req, res) => {
+app.post('updated_tin/signup', async (req, res) => {
     const client = new MongoClient(uri)
     const {email, password} = req.body
 
@@ -57,7 +57,7 @@ app.post('/signup', async (req, res) => {
     }
 })
 
-app.post('/login', async (req, res) => {
+app.post('updated_tin/login', async (req, res) => {
     const client = new MongoClient(uri)
     const {email, password} = req.body
 
@@ -86,7 +86,7 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.get('/user', async (req, res) => {
+app.get('updated_tin/user', async (req, res) => {
     const client = new MongoClient(uri)
     const userId = req.query.userId
 
@@ -104,7 +104,7 @@ app.get('/user', async (req, res) => {
     }
 })
 
-app.put('/addmatch', async (req, res) => {
+app.put('updated_tin/addmatch', async (req, res) => {
     const client = new MongoClient(uri)
     const {userId, matchedUserId} = req.body
 
@@ -124,7 +124,7 @@ app.put('/addmatch', async (req, res) => {
     }
 })
 
-app.get('/users', async (req, res) => {
+app.get('updated_tin/users', async (req, res) => {
     const client = new MongoClient(uri)
     const userIds = JSON.parse(req.query.userIds)
 
@@ -153,7 +153,7 @@ app.get('/users', async (req, res) => {
     }
 })
 
-app.get('/gendered-users', async (req, res) => {
+app.get('updated_tin/gendered-users', async (req, res) => {
     const client = new MongoClient(uri)
     const gender = req.query.gender
 
@@ -170,7 +170,7 @@ app.get('/gendered-users', async (req, res) => {
     }
 })
 
-app.put('/user', async (req, res) => {
+app.put('updated_tin/user', async (req, res) => {
     const client = new MongoClient(uri)
     const formData = req.body.formData
 
@@ -205,7 +205,7 @@ app.put('/user', async (req, res) => {
     }
 })
 
-app.get('/messages', async (req, res) => {
+app.get('updated_tin/messages', async (req, res) => {
     const {userId, correspondingUserId} = req.query
     const client = new MongoClient(uri)
 
@@ -224,7 +224,7 @@ app.get('/messages', async (req, res) => {
     }
 })
 
-app.post('/message', async (req, res) => {
+app.post('updated_tin/message', async (req, res) => {
     const client = new MongoClient(uri)
     const message = req.body.message
 
